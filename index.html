@@ -349,7 +349,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between; /* Space between items */
-            position: relative; /* Set position to relative to use absolute positioning for the image */
+            position: relative; /* Make sure the image is positioned relative to the sidebar */
         }
         .sidebar > .menu-items {
             margin-top: 20px; /* Add space from the top */
@@ -373,7 +373,7 @@
             opacity: 1;
         }
 
-        /* Add image to the bottom-left corner of the sidebar */
+        /* Add image to the bottom-left corner inside the sidebar */
         .bottom-left-image {
             position: absolute;
             bottom: 20px; /* 20px from the bottom of the sidebar */
@@ -461,4 +461,22 @@
                 particle.update();
                 particle.draw();
             });
-            request
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("mousemove", (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        init();
+        animate();
+    </script>
+
+</body>
+</html>
