@@ -324,6 +324,99 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Unblocker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .sidebar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 220px;
+            height: calc(100vh - 40px);
+            padding: 0 15px;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .menu-items {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-item {
+            padding: 15px;
+            margin: 8px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            border-radius: 12px;
+            opacity: 0.85;
+        }
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            opacity: 1;
+        }
+        /* Settings Icon */
+        .settings-icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            align-self: center;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .settings-icon:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <div class="menu-items">
+            <div class="menu-item">Settings</div>
+            <div class="menu-item">Games</div>
+        </div>
+
+        <!-- Settings Icon at the Bottom -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Settings-icon.svg" alt="Settings" class="settings-icon">
+    </div>
+
+</body>
+</html>
+
+
+
+
+
 
 
 </html>
