@@ -177,9 +177,9 @@
         .sidebar {
             position: fixed;
             top: 20px;
-            left: 20px;
+            left: 0; /* Sidebar closer to the left border */
             width: 220px;
-            height: calc(100vh - 40px); /* Full height minus margin */
+            height: calc(100vh - 40px); /* Equal top and bottom margin */
             padding: 15px;
             background: rgba(0, 0, 0, 0.75); /* 75% transparency */
             border-radius: 20px;
@@ -187,13 +187,7 @@
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Space between items */
-        }
-        .sidebar h3 {
-            margin: 0 0 15px;
-            text-align: center;
-            font-size: 24px;
-            opacity: 0.9; /* Increased text opacity */
+            justify-content: flex-start; /* Buttons at the top */
         }
         .menu-item {
             padding: 15px;
@@ -217,7 +211,6 @@
 
     <!-- Sidebar Menu -->
     <div class="sidebar">
-        <h3>Menu</h3>
         <div class="menu-item">Settings</div>
         <div class="menu-item">Games</div>
     </div>
