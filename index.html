@@ -180,11 +180,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
         }
         .menu-items {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
         .menu-item {
             padding: 15px;
@@ -200,14 +202,12 @@
             background-color: rgba(255, 255, 255, 0.2);
             opacity: 1;
         }
-        /* Icon Styling */
+        /* Centered Icons Styling */
         .icon-container {
-            position: absolute;
-            bottom: 7px;
-            left: 7px;
             display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 10px; /* Space between icons */
+            padding-bottom: 15px;
         }
         .icon {
             width: 35px;
@@ -230,7 +230,7 @@
             <div class="menu-item">Games</div>
         </div>
 
-        <!-- Icons at the Bottom Left -->
+        <!-- Centered Icons at the Bottom -->
         <div class="icon-container">
             <!-- First Icon -->
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -249,3 +249,4 @@
 
 </body>
 </html>
+
