@@ -250,3 +250,74 @@
 </body>
 </html>
 
+
+
+
+
+#proxy stuff
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ultraviolet Proxy</title>
+  <style>
+    /* Basic styling for the search bar */
+    #proxySearchForm {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+    #proxyUrl {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+    #proxySubmit {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 5px 5px 0;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #proxySubmit:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ultraviolet Proxy Search Bar -->
+  <form id="proxySearchForm">
+    <input type="text" id="proxyUrl" placeholder="Enter URL to bypass restrictions" required>
+    <button type="submit" id="proxySubmit">Go</button>
+  </form>
+
+  <script>
+    // Listen for form submission
+    document.getElementById('proxySearchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const urlInput = document.getElementById('proxyUrl').value;
+      
+      // Validate or modify the URL as needed. For example, if the user did not include "http://" or "https://", you might add it:
+      let url = urlInput.trim();
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'http://' + url;
+      }
+      
+      // Redirect to your Ultraviolet Proxy handler. Change the path and parameter as required.
+      // For instance, if your proxy backend expects the URL as a query parameter named "url":
+      window.location.href = '/proxy?url=' + encodeURIComponent(url);
+    });
+  </script>
+
+</body>
+</html>
