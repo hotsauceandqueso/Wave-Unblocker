@@ -254,70 +254,118 @@
 
 
 
-#proxy stuff
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ultraviolet Proxy</title>
+  <title>Wave Unblocker - Ultraviolet Proxy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Basic styling for the search bar */
-    #proxySearchForm {
+    /* Reset and base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    
+    /* Left container for the proxy view */
+    .proxy-container {
+      width: 70%;
+      height: 100vh;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid #ccc;
+      overflow: hidden;
+    }
+    
+    /* Search bar styles with black background */
+    .search-bar {
+      background: #000;
+      padding: 10px;
       display: flex;
       justify-content: center;
-      margin: 20px;
+      align-items: center;
     }
-    #proxyUrl {
+    .search-bar input[type="text"] {
       width: 60%;
       padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 5px 0 0 5px;
+      font-size: 16px;
       outline: none;
     }
-    #proxySubmit {
+    .search-bar button {
       padding: 10px 20px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-left: none;
+      border: none;
       border-radius: 0 5px 5px 0;
-      background-color: #333;
+      background: #333;
       color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
-    #proxySubmit:hover {
-      background-color: #555;
+    .search-bar button:hover {
+      background: #555;
+    }
+    
+    /* Iframe that shows the proxied website */
+    .proxy-view {
+      width: 100%;
+      height: calc(100vh - 50px); /* Adjust height to leave room for search bar */
+      border: none;
+    }
+    
+    /* Optional right-side container for additional content */
+    .other-container {
+      width: 30%;
+      height: 100vh;
+      background: #fafafa;
+      padding: 20px;
+      box-sizing: border-box;
     }
   </style>
 </head>
 <body>
 
-  <!-- Ultraviolet Proxy Search Bar -->
-  <form id="proxySearchForm">
-    <input type="text" id="proxyUrl" placeholder="Enter URL to bypass restrictions" required>
-    <button type="submit" id="proxySubmit">Go</button>
-  </form>
-
+  <!-- Left Side: Proxy Container -->
+  <div class="proxy-container">
+    <!-- Black Search Bar -->
+    <div class="search-bar">
+      <form id="proxySearchForm">
+        <input type="text" id="proxyUrl" placeholder="Enter URL to bypass restrictions" required>
+        <button type="submit">Go</button>
+      </form>
+    </div>
+    <!-- Iframe that will display the proxied website -->
+    <iframe id="proxyView" class="proxy-view" src=""></iframe>
+  </div>
+  
+  <!-- Optional Right Side: Other Content -->
+  <div class="other-container">
+    <!-- Additional content can go here -->
+    <h2>Welcome to Wave Unblocker</h2>
+    <p>This is your additional content area. Customize as needed.</p>
+  </div>
+  
   <script>
-    // Listen for form submission
+    // When the form is submitted, update the iframe's src to load the proxy
     document.getElementById('proxySearchForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const urlInput = document.getElementById('proxyUrl').value;
-      
-      // Validate or modify the URL as needed. For example, if the user did not include "http://" or "https://", you might add it:
-      let url = urlInput.trim();
+      let url = document.getElementById('proxyUrl').value.trim();
+      // Add protocol if missing
       if (!/^https?:\/\//i.test(url)) {
         url = 'http://' + url;
       }
-      
-      // Redirect to your Ultraviolet Proxy handler. Change the path and parameter as required.
-      // For instance, if your proxy backend expects the URL as a query parameter named "url":
-      window.location.href = '/proxy?url=' + encodeURIComponent(url);
+      // Set the iframe's src to your proxy endpoint with the URL parameter.
+      // Change "/proxy" to the correct endpoint for your Ultraviolet proxy.
+      document.getElementById('proxyView').src = '/proxy?url=' + encodeURIComponent(url);
     });
   </script>
-
+  
 </body>
 </html>
