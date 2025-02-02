@@ -349,7 +349,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between; /* Space between items */
-            position: relative; /* Make sure the image is positioned relative to the sidebar */
+            position: relative; /* Set position relative for child absolute positioning */
         }
         .sidebar > .menu-items {
             margin-top: 20px; /* Add space from the top */
@@ -376,9 +376,9 @@
         /* Add image to the bottom-left corner inside the sidebar */
         .bottom-left-image {
             position: absolute;
-            bottom: 20px; /* 20px from the bottom of the sidebar */
-            left: 20px; /* 20px from the left of the sidebar */
-            width: 100px; /* Adjust size as needed */
+            bottom: 7px; /* 7px from the bottom of the sidebar */
+            left: 7px; /* 7px from the left of the sidebar */
+            width: 50px; /* Adjust size as needed */
             height: auto;
         }
     </style>
@@ -394,8 +394,8 @@
             <div class="menu-item">Games</div>
         </div>
 
-        <!-- Bottom left PNG image inside the sidebar -->
-        <img src="https://github.com/hotsauceandqueso/Wave-Unblocker/blob/main/wave.png" class="bottom-left-image" alt="My Image">
+        <!-- Small PNG image inside the sidebar -->
+        <img src="https://github.com/hotsauceandqueso/Wave-Unblocker/blob/main/wave.png" class="bottom-left-image" alt="wave.png">
     </div>
 
     <script>
@@ -480,3 +480,4 @@
 
 </body>
 </html>
+
