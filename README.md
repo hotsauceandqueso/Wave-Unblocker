@@ -1,1 +1,1 @@
-# Wave-Unblocker is a sleek webproxy meant to evaid intenret censorship
+# Wave-Unblocker is a sleek web proxy meant to evaid internet censorship
