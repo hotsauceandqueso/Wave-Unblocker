@@ -258,35 +258,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy</title>
-    <style>
-        body { background: linear-gradient(to right, #000046, #1CB5E0); color: white; }
-        .container { display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .button { margin: 10px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 10px; text-align: center; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="button" onclick="location.href='/google'">Google</div>
-        <div class="button" onclick="location.href='/youtube'">YouTube</div>
-        <!-- Add more buttons for other services -->
-    </div>
-</body>
-</html>
-
-
-
-<iframe id="iframeWindow" class="iframeWindow"></iframe>
-<input type="text" id="urlInput" placeholder="Enter URL here">
-<button id="searchButton">Search Text</button>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy Search</title>
+    <title>Proxy Search Engine</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -296,7 +268,7 @@
         input {
             width: 300px;
             padding: 10px;
-            margin-right: 5px;
+            margin: 5px;
         }
         button {
             padding: 10px;
@@ -312,13 +284,31 @@
 </head>
 <body>
 
-    <h2>Proxy Search</h2>
+    <h2>Proxy Search Engine</h2>
+    
+    <!-- Search Bar -->
+    <input type="text" id="searchQuery" placeholder="Search the web">
+    <button onclick="searchWeb()">Search</button>
+    
+    <br>
+
+    <!-- Direct URL Entry -->
     <input type="text" id="proxyUrl" placeholder="Enter URL (e.g., https://example.com)">
     <button onclick="loadProxy()">Go</button>
 
     <iframe id="proxyFrame"></iframe>
 
     <script>
+        function searchWeb() {
+            let query = document.getElementById('searchQuery').value.trim();
+            if (!query) {
+                alert("Please enter a search term.");
+                return;
+            }
+            let searchUrl = "https://yourproxyserver.com/proxy/https://www.google.com/search?q=" + encodeURIComponent(query);
+            document.getElementById('proxyFrame').src = searchUrl;
+        }
+
         function loadProxy() {
             let url = document.getElementById('proxyUrl').value.trim();
             if (!url) {
@@ -334,4 +324,5 @@
 
 </body>
 </html>
+
 
