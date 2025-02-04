@@ -253,36 +253,5 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultraviolet Proxy</title>
-    <script src="uv/uv.bundle.js"></script>
-    <script src="uv/uv.config.js"></script>
-    <script src="uv/uv.client.js"></script>
-</head>
-<body>
-    <h1>Ultraviolet Proxy</h1>
-    <input type="text" id="url" placeholder="Enter a URL">
-    <button onclick="startProxy()">Go</button>
 
-    <script>
-        async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                await navigator.serviceWorker.register('/sw.js');
-            }
-        }
-        registerSW();
-
-        function startProxy() {
-            const url = document.getElementById("url").value;
-            if (url) {
-                window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-            }
-        }
-    </script>
-</body>
-</html>
 
